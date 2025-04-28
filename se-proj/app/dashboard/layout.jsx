@@ -1,11 +1,14 @@
-import SideBar from "@/components/SideBar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
 
-export default function DashboaordLayout({ children }) {
+export default function Layout({ children }) {
   return (
-    <div className="grid grid-cols-2 min-h-screen bg-[#273F4F]">
-      <div className="flex items-center justify-center">
-        <SideBar>{children}</SideBar>
-      </div>
-    </div>
+    <SidebarProvider>
+      <AppSidebar />
+      <main>
+        <SidebarTrigger />
+        {children}
+      </main>
+    </SidebarProvider>
   );
 }
