@@ -16,7 +16,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FaFacebookF, FaGoogle, FaGithub } from "react-icons/fa"; // Import icons
 
-export default function LoginCard() {
+export default function RegisterCard() {
   const router = useRouter();
   const handleLogin = () => {
     router.push("/dashboard");
@@ -27,7 +27,7 @@ export default function LoginCard() {
       <Card className="shadow-2xl scale-110 w-full max-w-sm sm:max-w-md md:max-w-lg bg-black border-black">
         <CardHeader>
           <CardTitle className="text-center text-4xl font-extrabold mb-4 mt-6 text-white">
-            Login To Your Account
+            Registration
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-9 p-10">
