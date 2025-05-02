@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Link } from "next/link";
+import Link from "next/link";
 
 export default function NavigationBar() {
   return (
@@ -9,7 +9,7 @@ export default function NavigationBar() {
       {/* Logo Section */}
       <div className="text-3xl font-bold">
         <Link href="/" className="text-white hover:text-orange-500">
-          YourLogo
+          Logo
         </Link>
       </div>
 
