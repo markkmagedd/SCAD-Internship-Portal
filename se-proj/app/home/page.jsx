@@ -65,7 +65,7 @@ export default function Homepage() {
       <footer className="bg-black text-white py-6">
         <div className="text-center">
           <p>&copy; 2025 SCAD. All Rights Reserved.</p>
-          <div className="space-x-6">
+          <div className="space-x-6 mt-4">
             <a href="/privacy-policy" className="hover:underline">
               Privacy Policy
             </a>
