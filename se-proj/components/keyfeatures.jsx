@@ -43,7 +43,7 @@ const FEATURES = [
   },
 ];
 
-/* gentle icon float */
+/* infinite gentle float for icons */
 const floatIcon = {
   animate: {
     y: [-5, 5, -5],
@@ -58,40 +58,21 @@ export default function KeyFeatures() {
 
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 px-6">
         {FEATURES.map(({ Icon, title, desc }) => (
+          /* gradient wrapper now handles the scale-pop */
           <div
             key={title}
-            className="group"
-            style={{ perspective: "1000px" }} /* depth for tilt */
+            className="group rounded-lg p-[2px] bg-gradient-to-r from-[#EC1024] to-[#FF6F1B]
+               transition-transform duration-300 ease-out
+               hover:scale-105"
           >
-            {/* single card with 3-D hover transform */}
-            <div
-              className="
-                p-6 rounded-lg bg-black text-white
-                transition-transform duration-300 ease-out
-                [transform-style:preserve-3d]
-                group-hover:[transform:rotateX(6deg)_rotateY(-6deg)_scale(1.04)]
-                group-hover:shadow-2xl
-              "
-            >
+            {/* inner card no longer scales, but still gets a lifted shadow */}
+            <div className="p-6 rounded-lg bg-white group-hover:shadow-xl">
               <motion.div variants={floatIcon} animate="animate">
-                <Icon className="mx-auto h-10 w-10 text-white" />
+                <Icon className="mx-auto h-10 w-10 text-[#EC1024]" />
               </motion.div>
 
-              <h3 className="mt-4 text-xl font-semibold text-white">
-                <span
-                  className="
-      px-1
-      bg-[linear-gradient(90deg,#EC1024,#FF6F1B)]
-      bg-[length:100%_3em]   /* 0.4 em-tall marker */
-      bg-left-bottom bg-no-repeat
-      bg-opacity-60            /* see-through ink */
-    "
-                >
-                  {title}
-                </span>
-              </h3>
-
-              <p className="mt-2">{desc}</p>
+              <h3 className="mt-4 text-xl font-semibold text-black">{title}</h3>
+              <p className="mt-2 text-gray-700">{desc}</p>
             </div>
           </div>
         ))}
