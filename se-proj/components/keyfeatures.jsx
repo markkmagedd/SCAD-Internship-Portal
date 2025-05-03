@@ -67,10 +67,23 @@ const slideVariant = (idx) => {
   };
 };
 
+// Component to wrap icons with SVG gradient
+const GradientIcon = ({ Icon }) => (
+  <svg width="40" height="40" viewBox="0 0 24 24" className="mx-auto">
+    <defs>
+      <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stopColor="#EC1024" />
+        <stop offset="100%" stopColor="#FF6F1B" />
+      </linearGradient>
+    </defs>
+    <Icon stroke="url(#iconGradient)" strokeWidth={2} fill="none" />
+  </svg>
+);
+
 export default function KeyFeatures() {
   return (
-    <section id="features" className="py-16 bg-white text-center">
-      <h2 className="text-4xl font-bold mb-10 text-black">Key Features</h2>
+    <section id="features" className="py-18  bg-white text-center">
+      <h2 className="text-4xl font-bold mb-20 text-black">Key Features</h2>
 
       <motion.div
         initial="hidden"
@@ -85,15 +98,15 @@ export default function KeyFeatures() {
               className="group rounded-lg p-[2px] bg-gradient-to-r from-[#EC1024] to-[#FF6F1B]
                          transition-transform duration-300 ease-out hover:scale-105"
             >
-              <div className="p-6 rounded-lg bg-white group-hover:shadow-xl">
+              <div className="p-6 rounded-lg bg-black group-hover:shadow-xl">
                 <motion.div variants={floatIcon} animate="animate">
-                  <Icon className="mx-auto h-10 w-10 text-[#EC1024]" />
+                  <GradientIcon Icon={Icon} />
                 </motion.div>
 
-                <h3 className="mt-4 text-xl font-semibold text-black">
+                <h3 className="mt-4 text-xl font-extrabold bg-gradient-to-r from-[#EC1024] to-[#FF6F1B] text-transparent bg-clip-text">
                   {title}
                 </h3>
-                <p className="mt-2 text-gray-700">{desc}</p>
+                <p className="mt-2 text-white">{desc}</p>
               </div>
             </div>
           </motion.div>

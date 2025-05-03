@@ -1,9 +1,11 @@
 "use client";
+import Image from "next/legacy/image";
 import ArrowButton from "@/components/arrow-button";
 import JoinButton from "@/components/join-button";
 import NavigationBar from "@/components/navigation-bar";
 import { Button } from "@/components/ui/button";
 import KeyFeatures from "@/components/keyfeatures";
+import logo from "@/public/images/scad.png";
 import {
   Sparkles,
   Activity,
@@ -19,8 +21,16 @@ export default function Homepage() {
   return (
     <>
       {/* Header */}
-      <header className="flex justify-between items-center p-4 bg-black text-white">
-        <div className="text-3xl font-bold">SCAD</div>
+      <header className="flex justify-between items-center p-4 bg-white text-white mt-0 mb-0">
+        <div className="flex items-center ">
+          <Image
+            src={logo} // put your logo in public/images/
+            alt="GUC x SCAD logo"
+            width={200} // tweak to fit
+            height={50}
+            priority
+          />
+        </div>
         <NavigationBar></NavigationBar>
       </header>
       {/* Hero Section */}
