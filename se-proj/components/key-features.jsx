@@ -82,13 +82,13 @@ const GradientIcon = ({ Icon }) => (
 
 export default function KeyFeatures() {
   return (
-    <section id="features" className="py-18  bg-white text-center">
-      <h2 className="text-4xl font-bold mb-20 text-black">Key Features</h2>
+    <section id="features" className="py-35 bg-black text-center">
+      <h2 className="text-5xl font-extrabold mb-30 text-white">Key Features</h2>
 
       <motion.div
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.25 }}
+        viewport={{ once: false, amount: 0.25 }}
         className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 px-6"
       >
         {FEATURES.map(({ Icon, title, desc }, idx) => (

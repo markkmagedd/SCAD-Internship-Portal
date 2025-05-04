@@ -194,7 +194,7 @@ export default function CompanyRegistration() {
               className="border-gray-400 data-[state=checked]:bg-black"
             />
             <Label className="text-sm leading-snug">
-              I agree to the&nbsp;
+              I agree to the
               <a
                 href="/terms"
                 className="underline font-medium"

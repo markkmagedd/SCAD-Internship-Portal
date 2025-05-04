@@ -48,7 +48,7 @@ export default function LoginCard() {
           <p className="text-xs">
             Don’t have an account?{" "}
             <Link
-              href="/auth/registration"
+              href="/registration"
               className="text-orange-600 hover:underline"
             >
               Create an account
