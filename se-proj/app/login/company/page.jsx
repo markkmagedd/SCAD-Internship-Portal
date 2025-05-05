@@ -940,19 +940,19 @@ export default function CompanyDashboard() {
                         <div className="border-t border-gray-800 p-4 flex justify-between">
                           <Button
                             variant="ghost"
-                            className="text-white bg-[#FF6F1B]/25 hover:bg-black border border-gray-800 hover:cursor-pointer"
+                            className="text-white bg-[#FF6F1B]/25 hover:bg-black hover:text-white border border-gray-800 hover:cursor-pointer"
                           >
                             <Eye className="h-4 w-4 mr-2" /> View
                           </Button>
                           <Button
                             variant="ghost"
-                            className="text-white bg-[#FF6F1B]/25 hover:bg-black border border-gray-800 hover:cursor-pointer"
+                            className="text-white bg-[#FF6F1B]/25 hover:bg-black hover:text-white border border-gray-800 hover:cursor-pointer"
                           >
                             <Edit className="h-4 w-4 mr-2" /> Edit
                           </Button>
                           <Button
                             variant="ghost"
-                            className="text-white bg-[#FF6F1B]/25 hover:bg-black border border-gray-800 hover:cursor-pointer"
+                            className="text-white bg-[#FF6F1B]/25 hover:bg-black  hover:text-white border border-gray-800 hover:cursor-pointer"
                           >
                             <Trash2 className="h-4 w-4 mr-2" /> Delete
                           </Button>
@@ -2022,7 +2022,7 @@ export default function CompanyDashboard() {
                     {companyDocuments.map((doc) => (
                       <div
                         key={doc.id}
-                        className="flex items-center justify-between bg-black p-4 rounded-lg border border-gray-700"
+                        className="flex items-center justify-between bg-gray-800 p-4 rounded-lg border border-gray-700"
                       >
                         <div className="flex items-center">
                           <FileText className="text-gray-400 mr-3 h-5 w-5" />
