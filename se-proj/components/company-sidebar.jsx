@@ -26,7 +26,7 @@ export default function CompanySidebar({
 
   return (
     <div
-      className={`h-full bg-gray-900 transition-all duration-300 border-r border-gray-800 ${
+      className={`h-full bg-black transition-all duration-300 border-r border-gray-800 ${
         isSidebarOpen ? "w-64" : "w-20"
       }`}
     >
@@ -41,7 +41,7 @@ export default function CompanySidebar({
           <Button
             variant="ghost"
             size="icon"
-            className="text-gray-400 hover:text-white hover:bg-gray-800 rounded-full"
+            className="text-gray-400 hover:text-white hover:bg-[#FF6F1B]/20 rounded-full"
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           >
             <Menu className="h-5 w-5" />

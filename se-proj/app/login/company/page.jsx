@@ -590,20 +590,39 @@ export default function CompanyDashboard() {
               </div>
 
               {/* Recent Applications */}
-              <Card className="bg-black border-gray-800 shadow-xl rounded-xl overflow-hidden">
+              <Card className="bg-black border-gray-800 rounded-xl overflow-hidden hover:shadow-[#FF6F1B] shadow-s">
                 <CardContent className="p-0">
                   <div className="p-6 border-b border-gray-800 flex justify-between items-center">
                     <h3 className="text-xl font-bold text-white">
                       Recent Applications
                     </h3>
-                    <Button
-                      variant="outline"
-                      className="border-gray-700 bg-[#FF6F1B] text-white hover:text-white cursor-pointer hover:bg-black"
-                      onClick={() => setActiveItem("applications")}
-                    >
-                      View all
-                      <ChevronRight className=" h-4 w-4" />
-                    </Button>
+                    <div>
+                      <a
+                        onClick={() => setActiveItem("applications")}
+                        className="relative inline-flex items-center justify-center px-6 py-2 bg-gradient-to-r from-[#EC1024] to-[#FF6F1B] hover:cursor-pointer text-white rounded-md overflow-hidden font-medium transition duration-300 ease-out border-black shadow-lg border-2 group"
+                      >
+                        <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-orange group-hover:translate-x-0 ease">
+                          <svg
+                            className="w-6 h-6"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M14 5l7 7m0 0l-7 7m7-7H3"
+                            ></path>
+                          </svg>
+                        </span>
+                        <span className="absolute flex items-center justify-center font-bold w-full h-full text-white transition-all duration-300 transform group-hover:translate-x-full ease">
+                          View All
+                        </span>
+                        <span className="relative invisible">Button Text</span>
+                      </a>
+                    </div>
                   </div>
                   <div className="overflow-x-auto">
                     <table className="w-full text-left">
@@ -678,13 +697,34 @@ export default function CompanyDashboard() {
                     <h3 className="text-xl font-bold text-white">
                       Current Interns
                     </h3>
-                    <Button
-                      variant="outline"
-                      className="border-gray-700 bg-[#FF6F1B] text-white hover:text-white cursor-pointer hover:bg-black"
-                      onClick={() => setActiveItem("interns")}
-                    >
-                      View all <ChevronRight className="ml-2 h-4 w-4" />
-                    </Button>
+
+                    <div>
+                      <a
+                        onClick={() => setActiveItem("interns")}
+                        className="relative inline-flex items-center justify-center px-6 py-2 bg-gradient-to-r from-[#EC1024] to-[#FF6F1B] hover:cursor-pointer text-white rounded-md overflow-hidden font-medium transition duration-300 ease-out border-black shadow-lg border-2 group"
+                      >
+                        <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-orange group-hover:translate-x-0 ease">
+                          <svg
+                            className="w-6 h-6"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M14 5l7 7m0 0l-7 7m7-7H3"
+                            ></path>
+                          </svg>
+                        </span>
+                        <span className="absolute flex items-center justify-center font-bold w-full h-full text-white transition-all duration-300 transform group-hover:translate-x-full ease">
+                          View All
+                        </span>
+                        <span className="relative invisible">Button Text</span>
+                      </a>
+                    </div>
                   </div>
 
                   <div className="p-6 grid md:grid-cols-2 gap-6">
@@ -1016,7 +1056,7 @@ export default function CompanyDashboard() {
           {activeItem === "applications" && (
             <div className="space-y-6">
               {/* Filter controls */}
-              <div className="flex flex-col md:flex-row gap-4 items-center bg-gray-900 p-4 rounded-lg border border-gray-800">
+              <div className="flex flex-col md:flex-row gap-4 items-center bg-black p-4 rounded-lg border border-gray-800">
                 <div className="flex-1">
                   <label className="text-sm text-gray-400 block mb-1">
                     Filter by Position
@@ -1033,10 +1073,10 @@ export default function CompanyDashboard() {
                       })
                     }
                   >
-                    <SelectTrigger className="w-full bg-gray-800 border-gray-700 text-white">
+                    <SelectTrigger className="w-full bg-black border-gray-700 text-white">
                       <SelectValue placeholder="Select position" />
                     </SelectTrigger>
-                    <SelectContent className="bg-gray-800 border-gray-700 text-white">
+                    <SelectContent className="bg-black border-gray-700 text-white">
                       <SelectItem value="all">All Positions</SelectItem>
                       {internshipPosts.map((post) => (
                         <SelectItem key={post.id} value={post.id.toString()}>
@@ -1063,10 +1103,10 @@ export default function CompanyDashboard() {
                       })
                     }
                   >
-                    <SelectTrigger className="w-full bg-gray-800 border-gray-700 text-white">
+                    <SelectTrigger className="w-full black border-gray-700 text-white">
                       <SelectValue placeholder="Select status" />
                     </SelectTrigger>
-                    <SelectContent className="bg-gray-800 border-gray-700 text-white">
+                    <SelectContent className="bg-black border-gray-700 text-white">
                       <SelectItem value="all">All Status</SelectItem>
                       <SelectItem value="pending">Pending</SelectItem>
                       <SelectItem value="interviewing">Interviewing</SelectItem>
@@ -1084,7 +1124,7 @@ export default function CompanyDashboard() {
                   <div className="relative">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
                     <Input
-                      className="pl-10 bg-gray-800 border-gray-700 text-white rounded-lg"
+                      className="pl-10 bg-black border-gray-700 text-white rounded-lg"
                       placeholder="Search by name..."
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
@@ -1842,7 +1882,7 @@ export default function CompanyDashboard() {
                     </h3>
                     <Button
                       variant="outline"
-                      className="border-gray-700 text-white bg-[#FF6F1B]/25 hover:bg-black hover:cursor-pointer"
+                      className="border-gray-700 text-white bg-gradient-to-r from-[#EC1024] to-[#FF6F1B] hover:scale-108 hover:text-white hover:cursor-pointer"
                     >
                       <Edit className="h-4 w-4 mr-2" /> Edit Profile
                     </Button>
@@ -1908,7 +1948,7 @@ export default function CompanyDashboard() {
                             Industry
                           </label>
                           <Input
-                            className="bg-gray-800 border-gray-700 text-white"
+                            className="bg-black border-gray-700 text-white"
                             value={companyProfile.industry}
                             readOnly
                           />
@@ -1919,10 +1959,10 @@ export default function CompanyDashboard() {
                             Company Size
                           </label>
                           <Select defaultValue={companyProfile.size} disabled>
-                            <SelectTrigger className="bg-gray-800 border-gray-700 text-white">
+                            <SelectTrigger className="bg-black border-gray-700 text-white">
                               <SelectValue placeholder="Select company size" />
                             </SelectTrigger>
-                            <SelectContent className="bg-gray-800 border-gray-700 text-white">
+                            <SelectContent className="bg-black border-gray-700 text-white">
                               <SelectItem value="small">
                                 Small (50 employees or less)
                               </SelectItem>
@@ -1944,7 +1984,7 @@ export default function CompanyDashboard() {
                             Company Email
                           </label>
                           <Input
-                            className="bg-gray-800 border-gray-700 text-white"
+                            className="bg-black border-gray-700 text-white"
                             value={companyProfile.email}
                             readOnly
                           />
@@ -1956,7 +1996,7 @@ export default function CompanyDashboard() {
                           Company Description
                         </label>
                         <Textarea
-                          className="bg-gray-800 border-gray-700 text-white h-24"
+                          className="bg-black border-gray-700 text-white h-24"
                           placeholder="No company description provided."
                           readOnly
                         />
@@ -1967,13 +2007,13 @@ export default function CompanyDashboard() {
               </Card>
 
               {/* Company Documents */}
-              <Card className="bg-gray-900 border-gray-800 shadow-xl">
+              <Card className="bg-black border-gray-800 shadow-xl">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between mb-6">
                     <h3 className="text-xl font-bold text-white">
                       Company Documents
                     </h3>
-                    <Button className="bg-gradient-to-r from-[#EC1024] to-[#FF6F1B] text-white">
+                    <Button className="bg-gradient-to-r from-[#EC1024] hover:scale-108 hover:text-white hover:cursor-pointer to-[#FF6F1B] text-white">
                       <Upload className="h-4 w-4 mr-2" /> Upload Document
                     </Button>
                   </div>
@@ -1982,7 +2022,7 @@ export default function CompanyDashboard() {
                     {companyDocuments.map((doc) => (
                       <div
                         key={doc.id}
-                        className="flex items-center justify-between bg-gray-800 p-4 rounded-lg border border-gray-700"
+                        className="flex items-center justify-between bg-black p-4 rounded-lg border border-gray-700"
                       >
                         <div className="flex items-center">
                           <FileText className="text-gray-400 mr-3 h-5 w-5" />

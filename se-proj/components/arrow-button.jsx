@@ -4,7 +4,7 @@ function ArrowButton() {
   return (
     <div>
       <a
-        href="/auth/login"
+        href="/login"
         className="relative inline-flex items-center justify-center px-6 py-2 bg-transparent text-white rounded-md overflow-hidden font-medium transition duration-300 ease-out border-black shadow-lg border-2 group"
       >
         <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-orange group-hover:translate-x-0 ease">
