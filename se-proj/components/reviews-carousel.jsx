@@ -7,7 +7,10 @@ const REVIEWS = [
   { name: "John D.", text: "Amazing opportunities — user‑friendly and fast!" },
   { name: "Sara K.", text: "I landed my dream internship in two days." },
   { name: "Ahmed M.", text: "The analytics dashboard is pure gold." },
-  { name: "Lisa P.", text: "Love the video‑call feature for report reviews." },
+  {
+    name: "Youssef A.",
+    text: "Love the video‑call feature for report reviews.",
+  },
   { name: "Carlos G.", text: "The AI suggestions saved me tons of time." },
   { name: "Wei L.", text: "Smooth process, great support team!" },
   { name: "Fatima S.", text: "CV vault & share links are unbeatable." },
