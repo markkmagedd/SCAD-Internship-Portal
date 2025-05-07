@@ -41,7 +41,7 @@ export default function CompanySidebar({
           <Button
             variant="ghost"
             size="icon"
-            className="text-gray-400 hover:text-white hover:bg-[#FF6F1B]/20 rounded-full"
+            className="text-white hover:text-white hover:bg-black border hover:border-grey-400 bg-gradient-to-r from-[#EC1024] to-[#FF6F1B] hover:cursor-pointer rounded-full"
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           >
             <Menu className="h-5 w-5" />
@@ -55,8 +55,8 @@ export default function CompanySidebar({
               <button
                 className={`flex items-center w-full p-3 rounded-lg text-left transition-colors ${
                   activeItem === "dashboard"
-                    ? "bg-gradient-to-r from-[#EC1024]/20 to-[#FF6F1B]/20 text-white"
-                    : "text-gray-400 hover:bg-gray-800 hover:text-white"
+                    ? "bg-gradient-to-r from-[#EC1024]/30 to-[#FF6F1B]/30 text-white"
+                    : "text-white hover:cursor-pointer hover:bg-gradient-to-r hover:from-[#EC1024]/30 hover:to-[#FF6F1B]/30 hover:text-white"
                 }`}
                 onClick={() => handleNavigate("dashboard")}
               >
@@ -68,8 +68,8 @@ export default function CompanySidebar({
               <button
                 className={`flex items-center w-full p-3 rounded-lg text-left transition-colors ${
                   activeItem === "posts"
-                    ? "bg-gradient-to-r from-[#EC1024]/20 to-[#FF6F1B]/20 text-white"
-                    : "text-gray-400 hover:bg-gray-800 hover:text-white"
+                    ? "bg-gradient-to-r from-[#EC1024]/30 to-[#FF6F1B]/30 text-white"
+                    : "text-white hover:cursor-pointer hover:bg-gradient-to-r hover:from-[#EC1024]/30 hover:to-[#FF6F1B]/30 hover:text-white"
                 }`}
                 onClick={() => handleNavigate("posts")}
               >
@@ -81,8 +81,8 @@ export default function CompanySidebar({
               <button
                 className={`flex items-center w-full p-3 rounded-lg text-left transition-colors ${
                   activeItem === "applications"
-                    ? "bg-gradient-to-r from-[#EC1024]/20 to-[#FF6F1B]/20 text-white"
-                    : "text-gray-400 hover:bg-gray-800 hover:text-white"
+                    ? "bg-gradient-to-r from-[#EC1024]/30 to-[#FF6F1B]/30 text-white"
+                    : "text-white hover:cursor-pointer hover:bg-gradient-to-r hover:from-[#EC1024]/30 hover:to-[#FF6F1B]/30 hover:text-white"
                 }`}
                 onClick={() => handleNavigate("applications")}
               >
@@ -94,8 +94,8 @@ export default function CompanySidebar({
               <button
                 className={`flex items-center w-full p-3 rounded-lg text-left transition-colors ${
                   activeItem === "interns"
-                    ? "bg-gradient-to-r from-[#EC1024]/20 to-[#FF6F1B]/20 text-white"
-                    : "text-gray-400 hover:bg-gray-800 hover:text-white"
+                    ? "bg-gradient-to-r from-[#EC1024]/30 to-[#FF6F1B]/30 text-white"
+                    : "text-white hover:cursor-pointer hover:bg-gradient-to-r hover:from-[#EC1024]/30 hover:to-[#FF6F1B]/30 hover:text-white"
                 }`}
                 onClick={() => handleNavigate("interns")}
               >
@@ -107,8 +107,8 @@ export default function CompanySidebar({
               <button
                 className={`flex items-center w-full p-3 rounded-lg text-left transition-colors ${
                   activeItem === "profile"
-                    ? "bg-gradient-to-r from-[#EC1024]/20 to-[#FF6F1B]/20 text-white"
-                    : "text-gray-400 hover:bg-gray-800 hover:text-white"
+                    ? "bg-gradient-to-r from-[#EC1024]/30 to-[#FF6F1B]/30 text-white"
+                    : "text-white hover:cursor-pointer hover:bg-gradient-to-r hover:from-[#EC1024]/30 hover:to-[#FF6F1B]/30 hover:text-white"
                 }`}
                 onClick={() => handleNavigate("profile")}
               >
