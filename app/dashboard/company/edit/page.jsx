@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -8,9 +8,16 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import { Upload, Calendar, Info, Check, ArrowLeft, Loader2 } from "lucide-react";
+import {
+  Upload,
+  Calendar,
+  Info,
+  Check,
+  ArrowLeft,
+  Loader2,
+} from "lucide-react";
 
-export default function EditPage() {
+function EditPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const postId = searchParams.get("id");
@@ -42,16 +49,16 @@ export default function EditPage() {
     // For now, we'll simulate loading data from localStorage
     const fetchPost = () => {
       setIsLoading(true);
-      
+
       try {
         // Simulate API delay
         setTimeout(() => {
           // Get posts from localStorage or use default posts
           const storedPosts = localStorage.getItem("internshipPosts");
           const posts = storedPosts ? JSON.parse(storedPosts) : [];
-          
-          const post = posts.find(p => p.id.toString() === postId);
-          
+
+          const post = posts.find((p) => p.id.toString() === postId);
+
           if (post) {
             setInternshipData({
               title: post.title || "",
@@ -59,7 +66,9 @@ export default function EditPage() {
               duration: post.duration || "",
               isPaid: post.isPaid || false,
               salary: post.salary || "",
-              skills: Array.isArray(post.skills) ? post.skills.join(", ") : post.skills || "",
+              skills: Array.isArray(post.skills)
+                ? post.skills.join(", ")
+                : post.skills || "",
               startDate: post.startDate || "",
               requirements: post.requirements || "",
             });
@@ -68,7 +77,7 @@ export default function EditPage() {
             alert("Internship not found");
             router.push("/dashboard/company/posts");
           }
-          
+
           setIsLoading(false);
         }, 1000);
       } catch (error) {
@@ -101,10 +110,10 @@ export default function EditPage() {
         // Get current posts
         const storedPosts = localStorage.getItem("internshipPosts");
         const posts = storedPosts ? JSON.parse(storedPosts) : [];
-        
+
         // Find post index
-        const postIndex = posts.findIndex(p => p.id.toString() === postId);
-        
+        const postIndex = posts.findIndex((p) => p.id.toString() === postId);
+
         if (postIndex !== -1) {
           // Update the post with new data
           const updatedPost = {
@@ -114,17 +123,19 @@ export default function EditPage() {
             duration: internshipData.duration,
             isPaid: internshipData.isPaid,
             salary: internshipData.isPaid ? internshipData.salary : "",
-            skills: internshipData.skills.split(",").map(skill => skill.trim()),
+            skills: internshipData.skills
+              .split(",")
+              .map((skill) => skill.trim()),
             startDate: internshipData.startDate,
             requirements: internshipData.requirements,
-            dateUpdated: new Date().toISOString().split("T")[0]
+            dateUpdated: new Date().toISOString().split("T")[0],
           };
-          
+
           posts[postIndex] = updatedPost;
-          
+
           // Save back to localStorage
           localStorage.setItem("internshipPosts", JSON.stringify(posts));
-          
+
           setIsSubmitting(false);
           setShowSuccess(true);
         } else {
@@ -154,8 +165,8 @@ export default function EditPage() {
     <div className="space-y-6">
       <div className="flex justify-between items-center mb-6">
         <div className="flex items-center gap-4">
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             className="bg-black border-gray-700 hover:bg-black text-white hover:text-[#FF6F1B]"
             onClick={() => router.push("/dashboard/company/posts")}
           >
@@ -175,7 +186,8 @@ export default function EditPage() {
               Internship Updated Successfully!
             </h2>
             <p className="text-gray-400 text-center mb-6">
-              Your internship has been updated and the changes are now visible to students.
+              Your internship has been updated and the changes are now visible
+              to students.
             </p>
             <div className="flex gap-4">
               <Button
@@ -337,7 +349,7 @@ export default function EditPage() {
           <div className="flex justify-between gap-4">
             <Button
               type="button"
-              variant="outline" 
+              variant="outline"
               className="bg-red-500/20 text-red-400 border-red-500/30 hover:bg-red-500/30 hover:text-red-300"
               onClick={() => router.push("/dashboard/company/posts")}
             >
@@ -361,4 +373,21 @@ export default function EditPage() {
       )}
     </div>
   );
-} 
+}
+
+export default function EditPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex justify-center items-center h-96">
+          <div className="flex flex-col items-center">
+            <Loader2 className="h-8 w-8 text-[#FF6F1B] animate-spin mb-4" />
+            <p className="text-white">Loading...</p>
+          </div>
+        </div>
+      }
+    >
+      <EditPageContent />
+    </Suspense>
+  );
+}
