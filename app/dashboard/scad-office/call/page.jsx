@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 import {
   Video,
   Mic,
@@ -25,7 +25,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tooltip } from "@/components/ui/tooltip";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function CallPage() {
+function CallPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const callId = searchParams.get("id");
@@ -432,5 +432,19 @@ export default function CallPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function CallPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="h-screen bg-black flex items-center justify-center">
+          <div className="animate-spin h-10 w-10 border-4 border-[#FF6F1B] border-opacity-50 rounded-full border-t-transparent"></div>
+        </div>
+      }
+    >
+      <CallPageContent />
+    </Suspense>
   );
 }
